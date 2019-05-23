@@ -1,9 +1,6 @@
 package jfdata.model.match;
 
-/**
- * Class model for Score
- * @author remimarion
- */
+
 public class MatchScore {
 	
 	//ATTRIBUT

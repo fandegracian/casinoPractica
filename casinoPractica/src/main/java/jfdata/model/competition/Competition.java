@@ -4,10 +4,7 @@ import java.util.List;
 
 import jfdata.model.area.Area;
 
-/**
- * Class model for Competition
- * @author remimarion
- */
+
 public class Competition {
 	
 	//ATTRIBUT

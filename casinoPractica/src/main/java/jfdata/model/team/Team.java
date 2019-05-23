@@ -6,10 +6,7 @@ import jfdata.model.area.Area;
 import jfdata.model.competition.Competition;
 import jfdata.model.player.Player;
 
-/**
- * Class model for Team
- * @author remimarion
- */
+
 public class Team {
 	
 	//ATTRIBUT

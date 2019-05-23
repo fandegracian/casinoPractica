@@ -1,9 +1,6 @@
 package jfdata.model.match;
 
-/**
- * Class model for Referees
- * @author remimarion
- */
+
 public class MatchReferees {
 	
 	//ATTRIBUT

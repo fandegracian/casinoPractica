@@ -9,11 +9,7 @@ import java.net.URL;
 import com.google.gson.Gson;
 import jfdata.manager.JfdataManager;
 
-/**
- * Util class for JSON and object model
- * @author remimarion
- * @param <T>
- */
+
 public class UtilJson<T> {
 	
 	/**

@@ -1,9 +1,6 @@
 package jfdata.model.player;
 
-/**
- * Class model for Player
- * @author remimarion
- */
+
 public class Player {
 
 	//ATTRIBUT

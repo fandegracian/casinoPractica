@@ -3,10 +3,6 @@ package jfdata.model.match;
 import java.util.List;
 import jfdata.model.competition.Competition;
 
-/**
- * Class model for Match list
- * @author remimarion
- */
 public class MatchList {
 
 	//ATTRIBUT

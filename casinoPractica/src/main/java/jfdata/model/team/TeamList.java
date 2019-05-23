@@ -5,10 +5,7 @@ import java.util.List;
 import jfdata.model.competition.Competition;
 import jfdata.model.competition.CompetitionSeason;
 
-/**
- * Class model for Team list
- * @author remimarion
- */
+
 public class TeamList {
 	
 	//ATTRIBUT

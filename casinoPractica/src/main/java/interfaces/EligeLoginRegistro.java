@@ -20,7 +20,7 @@ public class EligeLoginRegistro extends JPanel {
 	public EligeLoginRegistro(Ventana v) {
 		super();
 		this.ventana = v;
-		setSize(new Dimension(300, 300));
+		setSize(new Dimension(450, 450));
 		setBackground(new Color(0, 206, 209));
 		setLayout(null);
 		

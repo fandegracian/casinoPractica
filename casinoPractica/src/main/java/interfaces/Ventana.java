@@ -10,6 +10,9 @@ public class Ventana extends JFrame{
 	private Login login;
 	private Registro registro;
 	private Usuario usuario;
+	private MenuJuegos menu;
+	private Ruleta ruleta;
+	private Veintiuno veintiuno;
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -23,9 +26,8 @@ public class Ventana extends JFrame{
 		super();
 		elr = new EligeLoginRegistro(this);
 		this.setTitle("Inicio de sesion");
-		this.setSize(300, 300);
+		this.setSize(450, 450);
 		this.setContentPane(elr);
-		this.setResizable(false);
 		this.setVisible(true);
 	}
 	
@@ -33,7 +35,6 @@ public class Ventana extends JFrame{
 		if(login==null) {
 			this.login = new Login(this);
 		}
-		elr.setVisible(false);
 		this.setContentPane(login);
 		this.login.setVisible(true);
 	}
@@ -42,7 +43,6 @@ public class Ventana extends JFrame{
 		if(registro==null) {
 			this.registro = new Registro(this);
 		}
-		elr.setVisible(false);
 		this.setContentPane(registro);
 		this.registro.setVisible(true);
 	}
@@ -51,9 +51,31 @@ public class Ventana extends JFrame{
 		if(elr==null) {
 			this.elr = new EligeLoginRegistro(this);
 		}
-		login.setVisible(false);
 		this.setContentPane(elr);
 		this.elr.setVisible(true);
 	}
-
+	
+	public void irAlMenuJuegos() {
+		if(menu==null) {
+			this.menu = new MenuJuegos(this);
+		}
+		this.setContentPane(menu);
+		this.menu.setVisible(true);
+	}
+	
+	public void irRuleta() {
+		if(ruleta==null) {
+			this.ruleta = new Ruleta(this);
+		}
+		this.setContentPane(ruleta);
+		this.ruleta.setVisible(true);
+	}
+	
+	public void irVeintiuno() {
+		if(veintiuno==null) {
+			this.veintiuno = new Veintiuno(this);
+		}
+		this.setContentPane(veintiuno);
+		this.veintiuno.setVisible(true);
+	}
 }

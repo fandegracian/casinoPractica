@@ -5,10 +5,7 @@ import jfdata.model.competition.Competition;
 import jfdata.model.competition.CompetitionSeason;
 import jfdata.model.team.Team;
 
-/**
- * Class model for Match
- * @author remimarion
- */
+
 public class Match {
 
 	//ATTRIBUT
@@ -137,9 +134,7 @@ public class Match {
 	//METHODE
 	@Override
 	public String toString() {
-		return "MatchModel [id=" + id + ", competition=" + competition + ", season=" + season + ", utcDate=" + utcDate
-				+ ", status=" + status + ", venue=" + venue + ", matchday=" + matchday + ", stage=" + stage + ", group="
-				+ group + ", lastUpdated=" + lastUpdated + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam
-				+ ", score=" + score + ", referees=" + referees + "]";
+		return "id=" + id + ", competition=" + competition + ", group="+ group + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam
+				+ ", score=" + score;
 	}
 }

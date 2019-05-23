@@ -1,9 +1,6 @@
 package jfdata.model.competition;
 
-/**
- * Class model for CompetitionSeason, for Competition Class
- * @author remimarion
- */
+
 public class CompetitionSeason {
 
 	//ATTRIBUT

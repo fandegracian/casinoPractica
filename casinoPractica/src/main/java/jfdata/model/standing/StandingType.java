@@ -2,10 +2,7 @@ package jfdata.model.standing;
 
 import java.util.List;
 
-/**
- * Class model for StandingTypeModel
- * @author remimarion
- */
+
 public class StandingType {
 
 	//ATTRIBUT

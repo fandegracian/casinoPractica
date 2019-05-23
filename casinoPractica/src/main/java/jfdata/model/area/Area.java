@@ -1,9 +1,6 @@
 package jfdata.model.area;
 
-/**
- * CLass model for CompetitionArea, for Competition Class
- * @author remimarion
- */
+
 public class Area {
 
 	//ATTRIBUT

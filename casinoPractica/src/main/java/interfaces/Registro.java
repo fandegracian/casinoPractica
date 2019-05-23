@@ -11,26 +11,28 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Registro extends JPanel{
 	
 	private Ventana ventana;
 	private JTextField campoNombre;
 	private JTextField campoUsuario;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
 	private JPasswordField campoPass;
 	private JTextField campoEdad;
-	private JTextField campoDinero;
 	private JButton btnAtras;
 	private JButton btnRegistrarse;
+	private JTextField textField;
 
 	public Registro(Ventana v) {
 		super();
 		setBackground(new Color(0, 206, 209));
 		setForeground(new Color(0, 206, 209));
 		this.ventana = v;
-		this.setSize(300,300);
+		this.setSize(450,450);
 		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
@@ -42,16 +44,12 @@ public class Registro extends JPanel{
 		add(lblUsuario);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(10, 181, 56, 14);
+		lblContrasea.setBounds(10, 119, 56, 14);
 		add(lblContrasea);
 		
 		JLabel lblEdad = new JLabel("Edad");
-		lblEdad.setBounds(10, 220, 46, 14);
+		lblEdad.setBounds(10, 169, 46, 14);
 		add(lblEdad);
-		
-		JLabel lblDinero = new JLabel("Dinero");
-		lblDinero.setBounds(10, 2, 46, 14);
-		add(lblDinero);
 		
 		campoNombre = new JTextField();
 		campoNombre.setBounds(103, 27, 86, 20);
@@ -63,27 +61,13 @@ public class Registro extends JPanel{
 		add(campoUsuario);
 		campoUsuario.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(183, 178, -72, 17);
-		add(passwordField);
-		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(183, 178, -72, 5);
-		add(passwordField_1);
-		
 		campoPass = new JPasswordField();
-		campoPass.setBounds(103, 178, 86, 20);
+		campoPass.setBounds(103, 116, 86, 20);
 		add(campoPass);
 		
 		campoEdad = new JTextField();
 		campoEdad.setBounds(103, 71, 86, 20);
 		add(campoEdad);
-		campoEdad.setColumns(10);
-		
-		campoDinero = new JTextField();
-		campoDinero.setBounds(103, 71, 86, 20);
-		add(campoDinero);
-		campoDinero.setColumns(10);
 		
 		btnAtras = new JButton("Atras");
 		btnAtras.addMouseListener(new MouseAdapter() {
@@ -103,14 +87,32 @@ public class Registro extends JPanel{
 				String contrasena = String.copyValueOf(campoPass.getPassword());
 				String usuario = campoUsuario.getText();
 			    String edad = campoEdad.getText();
-			    String dinero = campoDinero.getText();
+			    
+			    Connection con;
+			    
+				try {
+					con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/casinovirtual?useUnicode=true"
+							+ "&useJDBCCompliantTimezoneShift=true"
+							+ "&useLegacyDatetimeCode=false&serverTimezone=UTC", "casinovirtual", "casinovirtual");
+					Statement smt=con.createStatement();
+					String SQL = "INSERT INTO registro values('"+nombre+"','"+usuario+"','"+contrasena+"','"+edad+"');";
+					System.out.println(edad);
+                    smt.executeUpdate(SQL);
+                    ventana.irAlEligeLoginRegistro();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 				ventana.setUsuario(new Usuario(nombre, contrasena,
-						usuario, edad,dinero));
+						usuario, edad));	
 			}
 		});
 		btnRegistrarse.setBounds(100, 223, 89, 23);
 		add(btnRegistrarse);
+		
+		textField = new JTextField();
+		textField.setBounds(103, 166, 86, 20);
+		add(textField);
+		textField.setColumns(10);
 	}
-
 }

@@ -2,10 +2,7 @@ package jfdata.model.competition;
 
 import java.util.List;
 
-/**
- * Class model for Competition list
- * @author remimarion
- */
+
 public class CompetitionList{
 	
 	//ATTRIBUT

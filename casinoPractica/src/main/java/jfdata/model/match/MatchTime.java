@@ -1,9 +1,6 @@
 package jfdata.model.match;
 
-/**
- * Class model for time score
- * @author remimarion
- */
+
 public class MatchTime {
 
 	//ATTRIBUT

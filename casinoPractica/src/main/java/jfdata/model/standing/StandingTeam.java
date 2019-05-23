@@ -2,10 +2,7 @@ package jfdata.model.standing;
 
 import jfdata.model.team.Team;
 
-/**
- * Class model for StandingTeamModel
- * @author remimarion
- */
+
 public class StandingTeam {
 
 	//ATTRIBUT

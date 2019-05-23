@@ -8,12 +8,11 @@ public class Usuario {
 	private String edad;
 	private String dinero;
 
-	public Usuario(String nombre, String usuario, String contraseña, String edad, String dinero) {
+	public Usuario(String nombre, String usuario, String contraseña, String edad) {
 		this.nombre = nombre;
 		this.usuario = usuario;
 		this.contraseña = contraseña;
 		this.edad = edad;
-		this.dinero = dinero;
 	}
 
 	public String getNombre() {
@@ -31,10 +30,6 @@ public class Usuario {
 	public String getEdad() {
 		return edad;
 	}
-
-	public String getDinero() {
-		return dinero;
-	}
 	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -50,9 +45,5 @@ public class Usuario {
 	
 	public void setEdad(String edad) {
 		this.edad = edad;
-	}
-
-	public void setDinero(String dinero) {
-		this.dinero = dinero;
 	}
 }
