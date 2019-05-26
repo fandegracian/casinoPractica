@@ -41,6 +41,12 @@ public class MenuJuegos extends JPanel{
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Loteria");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ventana.irLoteria();
+			}
+		});
 		btnNewButton_1.setBounds(58, 261, 121, 49);
 		add(btnNewButton_1);
 		

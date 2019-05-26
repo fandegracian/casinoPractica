@@ -13,6 +13,7 @@ public class Ventana extends JFrame{
 	private MenuJuegos menu;
 	private Ruleta ruleta;
 	private Veintiuno veintiuno;
+	private Loteria loteria;
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -77,5 +78,13 @@ public class Ventana extends JFrame{
 		}
 		this.setContentPane(veintiuno);
 		this.veintiuno.setVisible(true);
+	}
+	
+	public void irLoteria() {
+		if(loteria==null) {
+			this.loteria = new Loteria(this);
+		}
+		this.setContentPane(loteria);
+		this.loteria.setVisible(true);
 	}
 }
