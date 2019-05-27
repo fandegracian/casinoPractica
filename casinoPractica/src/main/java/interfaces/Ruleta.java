@@ -130,5 +130,15 @@ public class Ruleta extends JPanel{
 		});
 		btnAtras.setBounds(351, 374, 89, 23);
 		add(btnAtras);
+		
+		JButton btnReiniciar = new JButton("Reiniciar");
+		btnReiniciar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.setContentPane(new Veintiuno(ventana));
+			}
+		});
+		btnReiniciar.setBounds(319, 307, 89, 23);
+		add(btnReiniciar);
 	}
 }

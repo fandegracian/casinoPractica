@@ -82,7 +82,7 @@ public class Loteria extends JPanel{
 		btnIntroducir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int numero = Integer.parseInt(tuNumero.getText());
+				int tuCombinacion = Integer.parseInt(tuNumero.getText());
 				int[] numeroGanador;
 				numeroGanador = new int[5];
 				for(int i = 0; i<numeroGanador.length; i++) {
@@ -93,6 +93,7 @@ public class Loteria extends JPanel{
 				int numFraccion = (int) (Math.random()*10);
 				serie.setText(Integer.toString(numSerie));
 				fraccion.setText(Integer.toString(numFraccion));
+				
 			}
 		});
 		btnIntroducir.setBounds(10, 127, 89, 23);
@@ -107,5 +108,15 @@ public class Loteria extends JPanel{
 		});
 		btnAtras.setBounds(311, 296, 89, 23);
 		add(btnAtras);
+		
+		JButton btnReiniciar = new JButton("Reiniciar");
+		btnReiniciar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.setContentPane(new Veintiuno(ventana));
+			}
+		});
+		btnReiniciar.setBounds(212, 296, 89, 23);
+		add(btnReiniciar);
 	}
 }

@@ -4,14 +4,13 @@ public class Usuario {
 	
 	private String nombre;
 	private String usuario;
-	private String contraseña;
-	private String edad;
-	private String dinero;
-
-	public Usuario(String nombre, String usuario, String contraseña, String edad) {
+	private String contrasena;
+	private int edad;
+	
+	public Usuario(String nombre, String usuario, String contrasena, int edad) {
 		this.nombre = nombre;
 		this.usuario = usuario;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 		this.edad = edad;
 	}
 
@@ -23,11 +22,11 @@ public class Usuario {
 		return usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public String getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 	
@@ -39,11 +38,11 @@ public class Usuario {
 		this.usuario = usuario;
 	}
 	
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	
-	public void setEdad(String edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 }

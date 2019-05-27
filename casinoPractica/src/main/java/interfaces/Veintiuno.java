@@ -1,4 +1,4 @@
-package interfaces;
+ package interfaces;
 
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -14,6 +14,7 @@ public class Veintiuno extends JPanel{
 	private Ventana ventana;
 	private JTextField numeroJugador;
 	private JTextField numeroBanca;
+	int tuNumero = 0;
 	
 	public Veintiuno(Ventana v) {
 		
@@ -61,7 +62,7 @@ public class Veintiuno extends JPanel{
 		
 		JButton btnPedirCarta = new JButton("Pedir carta");
 		btnPedirCarta.addMouseListener(new MouseAdapter() {
-			int tuNumero = 0;
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int carta = (int) (Math.random() * 11) + 1;
@@ -80,7 +81,17 @@ public class Veintiuno extends JPanel{
 		btnPlantarse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				int numeroBancaa = 0;
+				while(numeroBancaa<tuNumero) {
+					int carta = (int) (Math.random() * 11) + 1;
+					numeroBancaa = numeroBancaa + carta;
+					numeroBanca.setText(Integer.toString(numeroBancaa));
+				}
+				if(numeroBancaa>=21) {
+					lblPerder.setText("HAS GANADO!");
+				}else {
+					lblPerder.setText("Has perdido");
+				}
 			}
 		});
 		btnPlantarse.setBounds(114, 278, 89, 23);
@@ -95,6 +106,16 @@ public class Veintiuno extends JPanel{
 		});
 		btnAtras.setBounds(331, 339, 89, 23);
 		add(btnAtras);
+		
+		JButton btnReinicar = new JButton("Reinicar");
+		btnReinicar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ventana.setContentPane(new Veintiuno(ventana));
+			}
+		});
+		btnReinicar.setBounds(331, 278, 89, 23);
+		add(btnReinicar);
 	}
 }
 

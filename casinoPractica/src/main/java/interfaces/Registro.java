@@ -86,7 +86,7 @@ public class Registro extends JPanel{
 				String nombre = campoNombre.getText();
 				String contrasena = String.copyValueOf(campoPass.getPassword());
 				String usuario = campoUsuario.getText();
-			    String edad = campoEdad.getText();
+			    int edad = Integer.parseInt(campoEdad.getText());
 			    
 			    Connection con;
 			    

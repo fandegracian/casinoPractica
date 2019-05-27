@@ -62,10 +62,10 @@ public class Login extends JPanel{
 							+ "&useJDBCCompliantTimezoneShift=true"
 							+ "&useLegacyDatetimeCode=false&serverTimezone=UTC", "casinovirtual", "casinovirtual");
 					Statement smt=con.createStatement();
-					String SQL = "SELECT * FROM registro WHERE usuario='" + usuario + "' && contraseña='" + contrasena + "'";
+					String SQL = "SELECT * FROM registro WHERE usuario='" + usuario + "' && contrasena='" + contrasena + "'";
                     ResultSet rs = smt.executeQuery(SQL);
                     if (rs.next()) {
-                        ventana.setUsuario(new Usuario(rs.getString("nombre"),rs.getString("usuario"),rs.getString("contraseña"),rs.getString("edad")));
+                        ventana.setUsuario(new Usuario(rs.getString("nombre"),rs.getString("usuario"),rs.getString("contrasena"),rs.getInt("edad")));
                         JfdataManager jfdataManager = new JfdataManager("a24dd750af544df998c6eecad017c05f");
                         ventana.irAlMenuJuegos();
                     }else { 
