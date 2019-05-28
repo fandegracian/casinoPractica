@@ -22,10 +22,9 @@ public class Registro extends JPanel{
 	private JTextField campoNombre;
 	private JTextField campoUsuario;
 	private JPasswordField campoPass;
-	private JTextField campoEdad;
 	private JButton btnAtras;
 	private JButton btnRegistrarse;
-	private JTextField textField;
+	private JTextField campoEdad;
 
 	public Registro(Ventana v) {
 		super();
@@ -65,10 +64,6 @@ public class Registro extends JPanel{
 		campoPass.setBounds(103, 116, 86, 20);
 		add(campoPass);
 		
-		campoEdad = new JTextField();
-		campoEdad.setBounds(103, 71, 86, 20);
-		add(campoEdad);
-		
 		btnAtras = new JButton("Atras");
 		btnAtras.addMouseListener(new MouseAdapter() {
 			@Override
@@ -83,10 +78,12 @@ public class Registro extends JPanel{
 		btnRegistrarse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				int edad = 0;
 				String nombre = campoNombre.getText();
 				String contrasena = String.copyValueOf(campoPass.getPassword());
 				String usuario = campoUsuario.getText();
-			    int edad = Integer.parseInt(campoEdad.getText());
+			    String edadCampo = campoEdad.getText();
+			    edad = Integer.parseInt(edadCampo);
 			    
 			    Connection con;
 			    
@@ -95,8 +92,7 @@ public class Registro extends JPanel{
 							+ "&useJDBCCompliantTimezoneShift=true"
 							+ "&useLegacyDatetimeCode=false&serverTimezone=UTC", "casinovirtual", "casinovirtual");
 					Statement smt=con.createStatement();
-					String SQL = "INSERT INTO registro values('"+nombre+"','"+usuario+"','"+contrasena+"','"+edad+"');";
-					System.out.println(edad);
+					String SQL = "INSERT INTO registro values('"+nombre+"','"+usuario+"','"+contrasena+"',"+edad+");";
                     smt.executeUpdate(SQL);
                     ventana.irAlEligeLoginRegistro();
 				} catch (SQLException e1) {
@@ -110,9 +106,9 @@ public class Registro extends JPanel{
 		btnRegistrarse.setBounds(100, 223, 89, 23);
 		add(btnRegistrarse);
 		
-		textField = new JTextField();
-		textField.setBounds(103, 166, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		campoEdad = new JTextField();
+		campoEdad.setBounds(103, 166, 86, 20);
+		add(campoEdad);
+		campoEdad.setColumns(10);
 	}
 }

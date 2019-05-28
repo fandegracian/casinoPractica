@@ -36,11 +36,11 @@ public class Ruleta extends JPanel{
 		add(lblParaJugarSolo);
 		
 		JLabel lblIntroduceTuDinero = new JLabel("Introduce tu dinero por favor");
-		lblIntroduceTuDinero.setBounds(10, 93, 150, 14);
+		lblIntroduceTuDinero.setBounds(10, 93, 165, 14);
 		add(lblIntroduceTuDinero);
 		
 		Dinero = new JTextField();
-		Dinero.setBounds(167, 93, 86, 20);
+		Dinero.setBounds(185, 90, 86, 20);
 		add(Dinero);
 		Dinero.setColumns(10);
 		
@@ -63,20 +63,20 @@ public class Ruleta extends JPanel{
 		Color.setColumns(10);
 		
 		JLabel lblNumeroganador = new JLabel("NumeroGanador");
-		lblNumeroganador.setBounds(226, 223, 86, 14);
+		lblNumeroganador.setBounds(226, 223, 107, 14);
 		add(lblNumeroganador);
 		
 		NumeroGanador = new JTextField();
-		NumeroGanador.setBounds(322, 220, 86, 20);
+		NumeroGanador.setBounds(343, 220, 86, 20);
 		add(NumeroGanador);
 		NumeroGanador.setColumns(10);
 		
 		JLabel lblColorganador = new JLabel("ColorGanador");
-		lblColorganador.setBounds(226, 279, 86, 14);
+		lblColorganador.setBounds(226, 279, 107, 14);
 		add(lblColorganador);
 		
 		ColorGanador = new JTextField();
-		ColorGanador.setBounds(322, 276, 86, 20);
+		ColorGanador.setBounds(343, 276, 86, 20);
 		add(ColorGanador);
 		ColorGanador.setColumns(10);
 		
@@ -135,7 +135,7 @@ public class Ruleta extends JPanel{
 		btnReiniciar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana.setContentPane(new Veintiuno(ventana));
+				ventana.setContentPane(new Ruleta(ventana));
 			}
 		});
 		btnReiniciar.setBounds(319, 307, 89, 23);

@@ -38,11 +38,11 @@ public class Loteria extends JPanel{
 		add(lblDependiendoDeLa);
 		
 		JLabel lblTuNumero = new JLabel("Tu numero");
-		lblTuNumero.setBounds(10, 102, 58, 14);
+		lblTuNumero.setBounds(10, 102, 72, 14);
 		add(lblTuNumero);
 		
 		tuNumero = new JTextField();
-		tuNumero.setBounds(67, 99, 86, 20);
+		tuNumero.setBounds(92, 99, 86, 20);
 		add(tuNumero);
 		tuNumero.setColumns(10);
 		
@@ -51,32 +51,31 @@ public class Loteria extends JPanel{
 		add(lblSerie);
 		
 		serie = new JTextField();
-		serie.setBounds(48, 248, 86, 20);
+		serie.setBounds(67, 248, 86, 20);
 		add(serie);
 		serie.setColumns(10);
 		
 		JLabel lblFraccin = new JLabel("Fracci\u00F3n");
-		lblFraccin.setBounds(10, 300, 46, 14);
+		lblFraccin.setBounds(10, 300, 72, 14);
 		add(lblFraccin);
 		
 		fraccion = new JTextField();
-		fraccion.setBounds(67, 297, 86, 20);
+		fraccion.setBounds(92, 297, 86, 20);
 		add(fraccion);
 		fraccion.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(10, 366, 430, 73);
-		add(lblNewLabel);
-		
 		JLabel lblCombinacinGanadora = new JLabel("Combinaci\u00F3n ganadora");
-		lblCombinacinGanadora.setBounds(10, 195, 109, 14);
+		lblCombinacinGanadora.setBounds(10, 195, 124, 14);
 		add(lblCombinacinGanadora);
 		
 		cmbGanadora = new JTextField();
-		cmbGanadora.setBounds(129, 192, 86, 20);
+		cmbGanadora.setBounds(158, 192, 86, 20);
 		add(cmbGanadora);
 		cmbGanadora.setColumns(10);
 		
+		final JLabel lblResultado = new JLabel("");
+		lblResultado.setBounds(10, 366, 430, 43);
+		add(lblResultado);
 		
 		JButton btnIntroducir = new JButton("Introducir");
 		btnIntroducir.addMouseListener(new MouseAdapter() {
@@ -86,13 +85,39 @@ public class Loteria extends JPanel{
 				int[] numeroGanador;
 				numeroGanador = new int[5];
 				for(int i = 0; i<numeroGanador.length; i++) {
-					numeroGanador[i] = (int) (Math.random()*9);
+					numeroGanador[i] = (int) (Math.random()*10);
 				}
 				cmbGanadora.setText(Arrays.toString(numeroGanador));
 				int numSerie = (int) (Math.random()*99);
 				int numFraccion = (int) (Math.random()*10);
 				serie.setText(Integer.toString(numSerie));
 				fraccion.setText(Integer.toString(numFraccion));
+				String combinacionUsuario = Integer.toString(tuCombinacion);
+				StringBuffer numeroPremiado = new StringBuffer();
+				for (int i = 0;i < numeroGanador.length; i++){
+					numeroPremiado = numeroPremiado.append(numeroGanador[i]);
+				}
+				
+				int aciertos = 0;
+				if(combinacionUsuario.length()>5||combinacionUsuario.length()<5) {
+					lblResultado.setText("El cupon debe tener 5 caracteres");
+				}else if(combinacionUsuario.charAt(4)==numeroPremiado.charAt(4)) {
+					lblResultado.setText("<html>Has acertado el ultimo numero de la combinacion, recibiras el precio de tu cupon como premio</html>");
+					aciertos++;
+				}else if(combinacionUsuario.charAt(3)==numeroPremiado.charAt(3)&&aciertos==1){
+					lblResultado.setText("<html>Has acertado los dos ultimos numeros, reciviras el 5% del premio</html>");
+					aciertos++;
+				}else if(combinacionUsuario.charAt(2)==numeroPremiado.charAt(2)&&aciertos==2) {
+					lblResultado.setText("<html>Has acertado los tres ultimos numeros, recivitas el 25% del premio</html>");
+					aciertos++;
+				}else if(combinacionUsuario.charAt(1)==numeroPremiado.charAt(1)&&aciertos==3) {
+					lblResultado.setText("<html>Has acertado los 4 ultimos numeros, recibiras el 50% del premio</html>");
+					aciertos++;
+				}else if(combinacionUsuario.charAt(0)==numeroGanador[0]&&aciertos==4) {
+					lblResultado.setText("<html>¡ENHORABUENA HAS ACERTADO LA COMBINACION COMPLETA!</html>");
+				}else {
+					lblResultado.setText("Mala suerte, vuelve a intentarlo");
+				}
 				
 			}
 		});
@@ -113,7 +138,7 @@ public class Loteria extends JPanel{
 		btnReiniciar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana.setContentPane(new Veintiuno(ventana));
+				ventana.setContentPane(new Loteria(ventana));
 			}
 		});
 		btnReiniciar.setBounds(212, 296, 89, 23);
