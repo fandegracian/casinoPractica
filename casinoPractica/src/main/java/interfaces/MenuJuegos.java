@@ -3,6 +3,7 @@ package interfaces;
 import java.awt.Color;
 
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -21,6 +22,7 @@ public class MenuJuegos extends JPanel{
 		setLayout(null);
 		
 		JButton btnRuleta = new JButton("Ruleta");
+		btnRuleta.setBackground(Color.LIGHT_GRAY);
 		btnRuleta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -31,6 +33,8 @@ public class MenuJuegos extends JPanel{
 		add(btnRuleta);
 		
 		JButton btnNewButton = new JButton("21");
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
+		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -41,6 +45,7 @@ public class MenuJuegos extends JPanel{
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Loteria");
+		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -51,6 +56,7 @@ public class MenuJuegos extends JPanel{
 		add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Quiniela");
+		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_2.setBounds(245, 261, 121, 49);
 		add(btnNewButton_2);
 		
@@ -65,10 +71,16 @@ public class MenuJuegos extends JPanel{
 		add(btnAtras);
 		
 		JLabel lblEligeEntreUno = new JLabel("Elige entre uno de nuestros cuatro juegos");
-		lblEligeEntreUno.setForeground(Color.BLUE);
+		lblEligeEntreUno.setForeground(Color.RED);
 		lblEligeEntreUno.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 22));
 		lblEligeEntreUno.setBounds(10, 21, 430, 36);
 		add(lblEligeEntreUno);
+		
+		JLabel lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/menuJuegos.jpg"));
 		
 		this.setVisible(true);
 	}

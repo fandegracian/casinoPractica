@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,7 +16,7 @@ public class Ruleta extends JPanel{
 	private Ventana ventana;
 	private JTextField Dinero;
 	private JTextField Numero;
-	private JTextField Color;
+	private JTextField Tipo;
 	private JTextField NumeroGanador;
 	private JTextField ColorGanador;
 	
@@ -27,24 +28,18 @@ public class Ruleta extends JPanel{
 		setLayout(null);
 		
 		JLabel lblBienvenidoALa = new JLabel("Bienvenido a la ruleta!");
+		lblBienvenidoALa.setForeground(Color.red);
 		lblBienvenidoALa.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
 		lblBienvenidoALa.setBounds(10, 11, 194, 46);
 		add(lblBienvenidoALa);
 		
 		JLabel lblParaJugarSolo = new JLabel("Para jugar solo tendras que elegir un n\u00FAmero (1-30) y un color (rojo-negro)");
+		lblParaJugarSolo.setForeground(Color.RED);
 		lblParaJugarSolo.setBounds(10, 68, 430, 14);
 		add(lblParaJugarSolo);
 		
-		JLabel lblIntroduceTuDinero = new JLabel("Introduce tu dinero por favor");
-		lblIntroduceTuDinero.setBounds(10, 93, 165, 14);
-		add(lblIntroduceTuDinero);
-		
-		Dinero = new JTextField();
-		Dinero.setBounds(185, 90, 86, 20);
-		add(Dinero);
-		Dinero.setColumns(10);
-		
 		JLabel lblNumero = new JLabel("Numero");
+		lblNumero.setForeground(Color.RED);
 		lblNumero.setBounds(10, 223, 46, 14);
 		add(lblNumero);
 		
@@ -53,16 +48,18 @@ public class Ruleta extends JPanel{
 		add(Numero);
 		Numero.setColumns(10);
 		
-		JLabel lblColor = new JLabel("Color");
+		JLabel lblColor = new JLabel("Tipo");
+		lblColor.setForeground(Color.RED);
 		lblColor.setBounds(10, 279, 46, 14);
 		add(lblColor);
 		
-		Color = new JTextField();
-		Color.setBounds(66, 276, 86, 20);
-		add(Color);
-		Color.setColumns(10);
+		Tipo = new JTextField();
+		Tipo.setBounds(66, 276, 86, 20);
+		add(Tipo);
+		Tipo.setColumns(10);
 		
 		JLabel lblNumeroganador = new JLabel("NumeroGanador");
+		lblNumeroganador.setForeground(Color.RED);
 		lblNumeroganador.setBounds(226, 223, 107, 14);
 		add(lblNumeroganador);
 		
@@ -72,6 +69,7 @@ public class Ruleta extends JPanel{
 		NumeroGanador.setColumns(10);
 		
 		JLabel lblColorganador = new JLabel("ColorGanador");
+		lblColorganador.setForeground(Color.RED);
 		lblColorganador.setBounds(226, 279, 107, 14);
 		add(lblColorganador);
 		
@@ -81,17 +79,17 @@ public class Ruleta extends JPanel{
 		ColorGanador.setColumns(10);
 		
 		final JLabel Resultado = new JLabel("");
-		Resultado.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 14));
-		Resultado.setBounds(66, 378, 187, 30);
+		Resultado.setForeground(Color.RED);
+		Resultado.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Resultado.setBounds(10, 378, 257, 30);
 		add(Resultado);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int dinero = Integer.parseInt(Dinero.getText());
 				int numero = Integer.parseInt(Numero.getText());
-				String color = Color.getText();
+				String color = Tipo.getText();
 				int numeroGanador = (int) (Math.random() * 30) + 1;
 				int numeroColor = (int) (Math.random() * 2) +1;
 				String colorGanador;
@@ -111,7 +109,6 @@ public class Ruleta extends JPanel{
 				}
 				
 				if(acierto1 == false && acierto2 == true) {
-					dinero = dinero * 5;
 					Resultado.setText("HAS GANADO!");
 				}else {
 					Resultado.setText("Casi, vuelve a intentarlo");
@@ -140,5 +137,11 @@ public class Ruleta extends JPanel{
 		});
 		btnReiniciar.setBounds(319, 307, 89, 23);
 		add(btnReiniciar);
+		
+		JLabel lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/Ruleta.jpg"));
 	}
 }

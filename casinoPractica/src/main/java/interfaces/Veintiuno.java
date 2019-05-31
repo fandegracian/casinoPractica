@@ -4,6 +4,8 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
@@ -26,15 +28,18 @@ public class Veintiuno extends JPanel{
 		
 		
 		JLabel lblBienvenidoAlVeintiuno = new JLabel("Bienvenido al veintiuno");
-		lblBienvenidoAlVeintiuno.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 21));
+		lblBienvenidoAlVeintiuno.setForeground(Color.RED);
+		lblBienvenidoAlVeintiuno.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		lblBienvenidoAlVeintiuno.setBounds(10, 26, 223, 42);
 		add(lblBienvenidoAlVeintiuno);
 		
 		JLabel lblElObjetivoEs = new JLabel("El objetivo es acercarte lo m\u00E1ximo posible al n\u00FAmero 21 pero sin pasarte");
+		lblElObjetivoEs.setForeground(Color.RED);
 		lblElObjetivoEs.setBounds(10, 79, 351, 14);
 		add(lblElObjetivoEs);
 		
 		JLabel lblSiLaBanca = new JLabel("Si la banca obtiene un n\u00FAmero superior al tuyo perder\u00E1s la partida");
+		lblSiLaBanca.setForeground(Color.RED);
 		lblSiLaBanca.setBounds(10, 104, 331, 14);
 		add(lblSiLaBanca);
 		
@@ -44,6 +49,7 @@ public class Veintiuno extends JPanel{
 		numeroJugador.setColumns(10);
 		
 		JLabel lblTuNmero = new JLabel("Tu numero");
+		lblTuNmero.setForeground(Color.RED);
 		lblTuNmero.setBounds(10, 195, 76, 14);
 		add(lblTuNmero);
 		
@@ -53,11 +59,14 @@ public class Veintiuno extends JPanel{
 		numeroBanca.setColumns(10);
 		
 		JLabel lblNmeroDeLa = new JLabel("Numero de la banca");
+		lblNmeroDeLa.setForeground(Color.RED);
 		lblNmeroDeLa.setBounds(209, 195, 132, 14);
 		add(lblNmeroDeLa);
 		
 		final JLabel lblPerder = new JLabel("");
-		lblPerder.setBounds(10, 343, 138, 14);
+		lblPerder.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblPerder.setForeground(Color.RED);
+		lblPerder.setBounds(10, 343, 193, 19);
 		add(lblPerder);
 		
 		JButton btnPedirCarta = new JButton("Pedir carta");
@@ -116,6 +125,12 @@ public class Veintiuno extends JPanel{
 		});
 		btnReinicar.setBounds(331, 278, 89, 23);
 		add(btnReinicar);
+		
+		JLabel lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/Veintiuno.jpg"));
 	}
 }
 

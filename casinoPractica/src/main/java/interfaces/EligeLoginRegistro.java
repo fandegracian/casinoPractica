@@ -3,6 +3,8 @@ package interfaces;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -32,7 +34,7 @@ public class EligeLoginRegistro extends JPanel {
 				ventana.irAlLogin();
 			}
 		});
-		btnLogin.setBounds(72, 108, 155, 60);
+		btnLogin.setBounds(10, 322, 155, 60);
 		add(btnLogin);
 		
 		BotonMenu btnRegister = new BotonMenu("Register");
@@ -42,19 +44,21 @@ public class EligeLoginRegistro extends JPanel {
 				ventana.irAlRegistro();
 			}
 		});
-		btnRegister.setBounds(72, 190, 155, 60);
+		btnRegister.setBounds(268, 322, 155, 60);
 		add(btnRegister);
 		
 		JLabel lblBienvenido = new JLabel("Bienvenido");
 		lblBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBienvenido.setForeground(new Color(128, 0, 128));
-		lblBienvenido.setFont(new Font("Algerian", Font.PLAIN, 23));
-		lblBienvenido.setBounds(10, 11, 280, 23);
+		lblBienvenido.setForeground(Color.RED);
+		lblBienvenido.setFont(new Font("Dialog", Font.BOLD, 40));
+		lblBienvenido.setBounds(10, 11, 280, 46);
 		add(lblBienvenido);
 		
-		JLabel lblNewLabel = new JLabel("Registrate o inicia sesión si aun no tienes cuenta");
-		lblNewLabel.setBounds(10, 46, 280, 14);
-		add(lblNewLabel);
+		JLabel lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/casinoInterior.jpg"));
 		
 		this.setVisible(true);
 	}

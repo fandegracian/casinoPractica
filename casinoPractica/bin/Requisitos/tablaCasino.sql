@@ -3,21 +3,16 @@ GRANT ALL PRIVILEGES ON * . * TO casinovirtual@'localhost';
 FLUSH PRIVILEGES;
 
 CREATE SCHEMA casinovirtual;
-USE casinovirtual;
 
 CREATE TABLE registro(
 	nombre varchar(45),
     usuario varchar(45),
-    contrasena varchar(45),
-    edad int(3)
+    contraseña varchar(45),
+    edad int(3),
+    dinero int(6)
 );
 
-SELECT *
-FROM registro;
-
-
-
-
+insert into registro values('pepe','pepe123','pepe123',45,344)
 
 
 

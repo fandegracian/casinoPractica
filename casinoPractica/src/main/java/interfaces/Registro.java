@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import clases.Usuario;
 
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -25,6 +26,7 @@ public class Registro extends JPanel{
 	private JButton btnAtras;
 	private JButton btnRegistrarse;
 	private JTextField campoEdad;
+	private JLabel lblFoto;
 
 	public Registro(Ventana v) {
 		super();
@@ -35,33 +37,33 @@ public class Registro extends JPanel{
 		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(10, 30, 46, 14);
+		lblNombre.setBounds(40, 75, 46, 14);
 		add(lblNombre);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBounds(10, 74, 46, 14);
+		lblUsuario.setBounds(40, 140, 46, 14);
 		add(lblUsuario);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(10, 119, 56, 14);
+		lblContrasea.setBounds(40, 202, 71, 14);
 		add(lblContrasea);
 		
 		JLabel lblEdad = new JLabel("Edad");
-		lblEdad.setBounds(10, 169, 46, 14);
+		lblEdad.setBounds(40, 269, 46, 14);
 		add(lblEdad);
 		
 		campoNombre = new JTextField();
-		campoNombre.setBounds(103, 27, 86, 20);
+		campoNombre.setBounds(103, 72, 86, 20);
 		add(campoNombre);
 		campoNombre.setColumns(10);
 		
 		campoUsuario = new JTextField();
-		campoUsuario.setBounds(103, 71, 86, 20);
+		campoUsuario.setBounds(103, 137, 86, 20);
 		add(campoUsuario);
 		campoUsuario.setColumns(10);
 		
 		campoPass = new JPasswordField();
-		campoPass.setBounds(103, 116, 86, 20);
+		campoPass.setBounds(121, 199, 86, 20);
 		add(campoPass);
 		
 		btnAtras = new JButton("Atras");
@@ -71,7 +73,7 @@ public class Registro extends JPanel{
 				ventana.irAlEligeLoginRegistro();
 			}
 		});
-		btnAtras.setBounds(201, 223, 89, 23);
+		btnAtras.setBounds(199, 362, 89, 23);
 		add(btnAtras);
 		
 		btnRegistrarse = new JButton("Registrarse");
@@ -103,12 +105,18 @@ public class Registro extends JPanel{
 						usuario, edad));	
 			}
 		});
-		btnRegistrarse.setBounds(100, 223, 89, 23);
+		btnRegistrarse.setBounds(100, 362, 89, 23);
 		add(btnRegistrarse);
 		
 		campoEdad = new JTextField();
-		campoEdad.setBounds(103, 166, 86, 20);
+		campoEdad.setBounds(103, 266, 86, 20);
 		add(campoEdad);
 		campoEdad.setColumns(10);
+		
+		lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/Registro.png"));
 	}
 }

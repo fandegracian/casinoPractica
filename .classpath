@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="casinoPractica/src/main/java"/>
+	<classpathentry kind="lib" path="casinoPractica/bin/Requisitos/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="lib" path="casinoPractica/Requisitos/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="output" path="casinoPractica/target/classes"/>
+</classpath>

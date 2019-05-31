@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -29,15 +30,18 @@ public class Loteria extends JPanel{
 		setLayout(null);
 		
 		JLabel lblBienvenidoALa = new JLabel("Bienvenido a la Loteria");
+		lblBienvenidoALa.setForeground(Color.RED);
 		lblBienvenidoALa.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblBienvenidoALa.setBounds(10, 23, 247, 29);
 		add(lblBienvenidoALa);
 		
 		JLabel lblDependiendoDeLa = new JLabel("Dependiendo de la cantidad de numeros acertados recibiras una compensaci\u00F3n economica");
+		lblDependiendoDeLa.setForeground(Color.RED);
 		lblDependiendoDeLa.setBounds(10, 63, 430, 14);
 		add(lblDependiendoDeLa);
 		
 		JLabel lblTuNumero = new JLabel("Tu numero");
+		lblTuNumero.setForeground(Color.RED);
 		lblTuNumero.setBounds(10, 102, 72, 14);
 		add(lblTuNumero);
 		
@@ -47,6 +51,7 @@ public class Loteria extends JPanel{
 		tuNumero.setColumns(10);
 		
 		JLabel lblSerie = new JLabel("Serie");
+		lblSerie.setForeground(Color.RED);
 		lblSerie.setBounds(10, 251, 46, 14);
 		add(lblSerie);
 		
@@ -56,6 +61,7 @@ public class Loteria extends JPanel{
 		serie.setColumns(10);
 		
 		JLabel lblFraccin = new JLabel("Fracci\u00F3n");
+		lblFraccin.setForeground(Color.RED);
 		lblFraccin.setBounds(10, 300, 72, 14);
 		add(lblFraccin);
 		
@@ -65,6 +71,7 @@ public class Loteria extends JPanel{
 		fraccion.setColumns(10);
 		
 		JLabel lblCombinacinGanadora = new JLabel("Combinaci\u00F3n ganadora");
+		lblCombinacinGanadora.setForeground(Color.RED);
 		lblCombinacinGanadora.setBounds(10, 195, 124, 14);
 		add(lblCombinacinGanadora);
 		
@@ -74,6 +81,7 @@ public class Loteria extends JPanel{
 		cmbGanadora.setColumns(10);
 		
 		final JLabel lblResultado = new JLabel("");
+		lblResultado.setForeground(Color.RED);
 		lblResultado.setBounds(10, 366, 430, 43);
 		add(lblResultado);
 		
@@ -143,5 +151,11 @@ public class Loteria extends JPanel{
 		});
 		btnReiniciar.setBounds(212, 296, 89, 23);
 		add(btnReiniciar);
+		
+		JLabel lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/Loteria.jpg"));
 	}
 }

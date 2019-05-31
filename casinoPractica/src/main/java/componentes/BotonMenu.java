@@ -11,7 +11,7 @@ public class BotonMenu extends JButton{
 
 	public BotonMenu(String txt) {
 		super(txt);
-		this.setForeground(new Color(255, 255, 255));
+		this.setForeground(Color.RED);
 		this.setFont(new Font("Script MT Bold", Font.PLAIN, 20));
 		this.setBackground(new Color(30, 144, 255));
 		this.addMouseListener(new MouseAdapter() {

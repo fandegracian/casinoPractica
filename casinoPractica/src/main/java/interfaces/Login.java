@@ -9,6 +9,7 @@ import clases.Usuario;
 import jfdata.manager.JfdataManager;
 
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,6 +18,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.awt.Font;
 
 public class Login extends JPanel{
 	private JTextField userField;
@@ -31,20 +33,24 @@ public class Login extends JPanel{
 		setLayout(null);
 		
 		JLabel lblUsername = new JLabel("User");
-		lblUsername.setBounds(10, 69, 49, 14);
+		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblUsername.setForeground(Color.RED);
+		lblUsername.setBounds(50, 46, 49, 14);
 		add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(10, 124, 46, 14);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPassword.setForeground(Color.RED);
+		lblPassword.setBounds(50, 81, 62, 14);
 		add(lblPassword);
 		
 		userField = new JTextField();
-		userField.setBounds(79, 66, 86, 20);
+		userField.setBounds(157, 43, 86, 20);
 		add(userField);
 		userField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(79, 121, 86, 20);
+		passwordField.setBounds(157, 78, 86, 20);
 		add(passwordField);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
@@ -66,8 +72,7 @@ public class Login extends JPanel{
                     ResultSet rs = smt.executeQuery(SQL);
                     if (rs.next()) {
                         ventana.setUsuario(new Usuario(rs.getString("nombre"),rs.getString("usuario"),rs.getString("contrasena"),rs.getInt("edad")));
-                        JfdataManager jfdataManager = new JfdataManager("a24dd750af544df998c6eecad017c05f");
-                        ventana.irAlMenuJuegos();
+                       ventana.irAlMenuJuegos();
                     }else { 
                     	lblAviso.setText("<html>Los datos introducidos son incorrectos</html>");
                     }
@@ -77,7 +82,7 @@ public class Login extends JPanel{
 				}
 			}
 		});
-		btnConfirmar.setBounds(79, 206, 89, 23);
+		btnConfirmar.setBounds(10, 356, 89, 23);
 		add(btnConfirmar);
 		
 		JButton btnAtras = new JButton("Atras");
@@ -87,8 +92,14 @@ public class Login extends JPanel{
 				ventana.irAlEligeLoginRegistro();
 			}
 		});
-		btnAtras.setBounds(188, 206, 89, 23);
+		btnAtras.setBounds(333, 356, 89, 23);
 		add(btnAtras);
+		
+		JLabel lblFoto = new JLabel("");
+		lblFoto.setBounds(0, 0, 450, 450);
+		add(lblFoto);
+		
+		lblFoto.setIcon(new ImageIcon("./Imagenes/Login.png"));
 		
 		this.setVisible(true);
 	}
