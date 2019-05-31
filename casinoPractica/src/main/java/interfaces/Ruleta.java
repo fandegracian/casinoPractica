@@ -4,8 +4,13 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import excepciones.ExcepcionRuleta;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -90,6 +95,7 @@ public class Ruleta extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int numero = Integer.parseInt(Numero.getText());
+				if(numero<=30) {
 				String color = Tipo.getText();
 				int numeroGanador = (int) (Math.random() * 30) + 1;
 				int numeroColor = (int) (Math.random() * 2) +1;
@@ -113,6 +119,14 @@ public class Ruleta extends JPanel{
 					Resultado.setText("HAS GANADO!");
 				}else {
 					Resultado.setText("Casi, vuelve a intentarlo");
+				}
+				}else {
+					try {
+						throw new ExcepcionRuleta("El numero no puede ser mayor de 30");
+					} catch (ExcepcionRuleta e1) {
+						e1.printStackTrace();
+						JOptionPane.showMessageDialog(ventana, "El numero no puede ser mayor de 30");
+					} 
 				}
 			}
 		});

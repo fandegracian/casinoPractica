@@ -3,9 +3,11 @@ package interfaces;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import clases.Usuario;
+import excepciones.ExcepcionLogin;
 import jfdata.manager.JfdataManager;
 
 import javax.swing.JPasswordField;
@@ -71,14 +73,16 @@ public class Login extends JPanel{
 					String SQL = "SELECT * FROM registro WHERE usuario='" + usuario + "' && contrasena='" + contrasena + "'";
                     ResultSet rs = smt.executeQuery(SQL);
                     if (rs.next()) {
-                        ventana.setUsuario(new Usuario(rs.getString("nombre"),rs.getString("usuario"),rs.getString("contrasena"),rs.getInt("edad")));
+                       ventana.setUsuario(new Usuario(rs.getString("nombre"),rs.getString("usuario"),rs.getString("contrasena"),rs.getInt("edad")));
                        ventana.irAlMenuJuegos();
                     }else { 
-                    	lblAviso.setText("<html>Los datos introducidos son incorrectos</html>");
+                    	throw new ExcepcionLogin("Los datos no son correctos");
                     }
 					con.close();
 				} catch (SQLException e1) {
+				} catch (ExcepcionLogin e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(ventana, "Los datos no son correctos");
 				}
 			}
 		});

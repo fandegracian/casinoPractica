@@ -4,8 +4,13 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import excepciones.ExcepcionLoteria;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -87,6 +92,7 @@ public class Loteria extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int tuCombinacion = Integer.parseInt(tuNumero.getText());
+				if(tuCombinacion<=99999&&tuCombinacion>=10000) {
 				int[] numeroGanador;
 				numeroGanador = new int[5];
 				for(int i = 0; i<numeroGanador.length; i++) {
@@ -124,6 +130,14 @@ public class Loteria extends JPanel{
 					lblResultado.setText("Mala suerte, vuelve a intentarlo");
 				}
 				
+			}else {
+				try {
+					throw new ExcepcionLoteria("Formato de cupón incorrecto");
+				} catch (ExcepcionLoteria e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(ventana, "Formato de cupón incorrecto");
+				} 	
+			}
 			}
 		});
 		btnIntroducir.setBounds(10, 127, 89, 23);

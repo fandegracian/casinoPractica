@@ -3,9 +3,11 @@ package interfaces;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import clases.Usuario;
+import excepciones.ExcepcionEdad;
 
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
@@ -86,6 +88,7 @@ public class Registro extends JPanel{
 				String usuario = campoUsuario.getText();
 			    String edadCampo = campoEdad.getText();
 			    edad = Integer.parseInt(edadCampo);
+			    if(edad>=18) {
 			    
 			    Connection con;
 			    
@@ -103,6 +106,14 @@ public class Registro extends JPanel{
 				
 				ventana.setUsuario(new Usuario(nombre, contrasena,
 						usuario, edad));	
+			}else {
+				try {
+					throw new ExcepcionEdad("Los menores de 18 años no pueden jugar");
+				} catch (ExcepcionEdad e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(ventana, "Los menores de 18 años no pueden jugar");
+				}
+			}
 			}
 		});
 		btnRegistrarse.setBounds(100, 362, 89, 23);

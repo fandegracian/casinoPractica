@@ -56,6 +56,12 @@ public class MenuJuegos extends JPanel{
 		add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Quiniela");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ventana.irQuiniela();
+			}
+		});
 		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_2.setBounds(245, 261, 121, 49);
 		add(btnNewButton_2);
