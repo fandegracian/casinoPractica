@@ -94,42 +94,45 @@ public class Ruleta extends JPanel{
 		btnConfirmar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int numero = Integer.parseInt(Numero.getText());
-				if(numero<=30) {
-				String color = Tipo.getText();
-				int numeroGanador = (int) (Math.random() * 30) + 1;
-				int numeroColor = (int) (Math.random() * 2) +1;
-				String colorGanador;
-				if(numeroColor==1) {
-					colorGanador = "negro";
-				}else {
-					colorGanador = "rojo";
-				}
-				lblnumGanador.setText(Integer.toString(numeroGanador));
-				lblColGanador.setText(colorGanador);
-				boolean acierto1 = true;
-				boolean acierto2 = false;
-				if(numero==numeroGanador) {
-					acierto1 = false;
-				}else if(color.equals(colorGanador)){
-					acierto2 = true;
-				}
-				
-				if(acierto1 == false && acierto2 == true) {
-					Resultado.setText("HAS GANADO!");
-				}else {
-					Resultado.setText("Casi, vuelve a intentarlo");
-				}
-				}else {
-					try {
-						throw new ExcepcionRuleta("El numero no puede ser mayor de 30");
-					} catch (ExcepcionRuleta e1) {
-						e1.printStackTrace();
-						JOptionPane.showMessageDialog(ventana, "El numero no puede ser mayor de 30");
-					} 
-				}
+				try {
+					int numero = Integer.parseInt(Numero.getText());
+					if(numero<=30) {
+					String color = Tipo.getText();
+					int numeroGanador = (int) (Math.random() * 30) + 1;
+					int numeroColor = (int) (Math.random() * 2) +1;
+					String colorGanador;
+					if(numeroColor==1) {
+						colorGanador = "negro";
+					}else {
+						colorGanador = "rojo";
+					}
+					lblnumGanador.setText(Integer.toString(numeroGanador));
+					lblColGanador.setText(colorGanador);
+					boolean acierto1 = true;
+					boolean acierto2 = false;
+					if(numero==numeroGanador) {
+						acierto1 = false;
+					}else if(color.equals(colorGanador)){
+						acierto2 = true;
+					}
+					
+					if(acierto1 == false && acierto2 == true) {
+						Resultado.setText("HAS GANADO!");
+					}else {
+						Resultado.setText("Casi, vuelve a intentarlo");
+					}
+					}else {
+						try {
+							throw new ExcepcionRuleta("El numero no puede ser mayor de 30");
+						} catch (ExcepcionRuleta e1) {
+							e1.printStackTrace();
+							JOptionPane.showMessageDialog(ventana, "El numero no puede ser mayor de 30");
+						} 
+					}
+			}catch(NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(ventana, "Los numeros no pueden ser decimales");
 			}
-		});
+			}});
 		btnConfirmar.setBounds(63, 307, 89, 23);
 		add(btnConfirmar);
 		
