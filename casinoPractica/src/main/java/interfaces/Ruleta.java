@@ -17,8 +17,6 @@ public class Ruleta extends JPanel{
 	private JTextField Dinero;
 	private JTextField Numero;
 	private JTextField Tipo;
-	private JTextField NumeroGanador;
-	private JTextField ColorGanador;
 	
 	public Ruleta(Ventana v) {
 		super();
@@ -28,18 +26,18 @@ public class Ruleta extends JPanel{
 		setLayout(null);
 		
 		JLabel lblBienvenidoALa = new JLabel("Bienvenido a la ruleta!");
-		lblBienvenidoALa.setForeground(Color.red);
+		lblBienvenidoALa.setForeground(Color.WHITE);
 		lblBienvenidoALa.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
 		lblBienvenidoALa.setBounds(10, 11, 194, 46);
 		add(lblBienvenidoALa);
 		
 		JLabel lblParaJugarSolo = new JLabel("Para jugar solo tendras que elegir un n\u00FAmero (1-30) y un color (rojo-negro)");
-		lblParaJugarSolo.setForeground(Color.RED);
+		lblParaJugarSolo.setForeground(Color.WHITE);
 		lblParaJugarSolo.setBounds(10, 68, 430, 14);
 		add(lblParaJugarSolo);
 		
 		JLabel lblNumero = new JLabel("Numero");
-		lblNumero.setForeground(Color.RED);
+		lblNumero.setForeground(Color.WHITE);
 		lblNumero.setBounds(10, 223, 46, 14);
 		add(lblNumero);
 		
@@ -49,7 +47,7 @@ public class Ruleta extends JPanel{
 		Numero.setColumns(10);
 		
 		JLabel lblColor = new JLabel("Tipo");
-		lblColor.setForeground(Color.RED);
+		lblColor.setForeground(Color.WHITE);
 		lblColor.setBounds(10, 279, 46, 14);
 		add(lblColor);
 		
@@ -59,24 +57,27 @@ public class Ruleta extends JPanel{
 		Tipo.setColumns(10);
 		
 		JLabel lblNumeroganador = new JLabel("NumeroGanador");
-		lblNumeroganador.setForeground(Color.RED);
+		lblNumeroganador.setForeground(Color.WHITE);
 		lblNumeroganador.setBounds(226, 223, 107, 14);
 		add(lblNumeroganador);
 		
-		NumeroGanador = new JTextField();
-		NumeroGanador.setBounds(343, 220, 86, 20);
-		add(NumeroGanador);
-		NumeroGanador.setColumns(10);
+		final JLabel lblnumGanador = new JLabel("");
+		lblnumGanador.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblnumGanador.setForeground(Color.WHITE);
+		lblnumGanador.setBounds(344, 223, 46, 14);
+		add(lblnumGanador);
 		
 		JLabel lblColorganador = new JLabel("ColorGanador");
-		lblColorganador.setForeground(Color.RED);
+		lblColorganador.setForeground(Color.WHITE);
 		lblColorganador.setBounds(226, 279, 107, 14);
 		add(lblColorganador);
 		
-		ColorGanador = new JTextField();
-		ColorGanador.setBounds(343, 276, 86, 20);
-		add(ColorGanador);
-		ColorGanador.setColumns(10);
+		final JLabel lblColGanador = new JLabel("");
+		lblColGanador.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblColGanador.setForeground(Color.WHITE);
+		lblColGanador.setBackground(Color.WHITE);
+		lblColGanador.setBounds(321, 279, 46, 14);
+		add(lblColGanador);
 		
 		final JLabel Resultado = new JLabel("");
 		Resultado.setForeground(Color.RED);
@@ -98,8 +99,8 @@ public class Ruleta extends JPanel{
 				}else {
 					colorGanador = "rojo";
 				}
-				NumeroGanador.setText(Integer.toString(numeroGanador));
-				ColorGanador.setText(colorGanador);
+				lblnumGanador.setText(Integer.toString(numeroGanador));
+				lblColGanador.setText(colorGanador);
 				boolean acierto1 = true;
 				boolean acierto2 = false;
 				if(numero==numeroGanador) {

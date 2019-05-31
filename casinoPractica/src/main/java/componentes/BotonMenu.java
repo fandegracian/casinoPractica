@@ -11,17 +11,17 @@ public class BotonMenu extends JButton{
 
 	public BotonMenu(String txt) {
 		super(txt);
-		this.setForeground(Color.RED);
+		this.setForeground(Color.BLACK);
 		this.setFont(new Font("Script MT Bold", Font.PLAIN, 20));
-		this.setBackground(new Color(30, 144, 255));
+		this.setBackground(Color.magenta);
 		this.addMouseListener(new MouseAdapter() {
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
-			setBackground(new Color(90, 204, 255));				
+			setBackground(Color.magenta);				
 		}
 		@Override
 		public void mouseExited(MouseEvent e) {
-			setBackground(new Color(30, 144, 255));	
+			setBackground(Color.magenta);	
 		}
 	});
 	}

@@ -17,9 +17,6 @@ public class Loteria extends JPanel{
 	
 	private Ventana ventana;
 	private JTextField tuNumero;
-	private JTextField cmbGanadora;
-	private JTextField serie;
-	private JTextField fraccion;
 	
 	public Loteria(Ventana v) {
 		
@@ -30,18 +27,18 @@ public class Loteria extends JPanel{
 		setLayout(null);
 		
 		JLabel lblBienvenidoALa = new JLabel("Bienvenido a la Loteria");
-		lblBienvenidoALa.setForeground(Color.RED);
+		lblBienvenidoALa.setForeground(Color.WHITE);
 		lblBienvenidoALa.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblBienvenidoALa.setBounds(10, 23, 247, 29);
 		add(lblBienvenidoALa);
 		
 		JLabel lblDependiendoDeLa = new JLabel("Dependiendo de la cantidad de numeros acertados recibiras una compensaci\u00F3n economica");
-		lblDependiendoDeLa.setForeground(Color.RED);
+		lblDependiendoDeLa.setForeground(Color.WHITE);
 		lblDependiendoDeLa.setBounds(10, 63, 430, 14);
 		add(lblDependiendoDeLa);
 		
 		JLabel lblTuNumero = new JLabel("Tu numero");
-		lblTuNumero.setForeground(Color.RED);
+		lblTuNumero.setForeground(Color.WHITE);
 		lblTuNumero.setBounds(10, 102, 72, 14);
 		add(lblTuNumero);
 		
@@ -51,37 +48,37 @@ public class Loteria extends JPanel{
 		tuNumero.setColumns(10);
 		
 		JLabel lblSerie = new JLabel("Serie");
-		lblSerie.setForeground(Color.RED);
+		lblSerie.setForeground(Color.WHITE);
 		lblSerie.setBounds(10, 251, 46, 14);
 		add(lblSerie);
 		
-		serie = new JTextField();
-		serie.setBounds(67, 248, 86, 20);
-		add(serie);
-		serie.setColumns(10);
+		final JLabel lblNumSerie = new JLabel("");
+		lblNumSerie.setForeground(Color.WHITE);
+		lblNumSerie.setBounds(92, 251, 46, 14);
+		add(lblNumSerie);
 		
-		JLabel lblFraccin = new JLabel("Fracci\u00F3n");
-		lblFraccin.setForeground(Color.RED);
-		lblFraccin.setBounds(10, 300, 72, 14);
-		add(lblFraccin);
+		JLabel lblFraccion = new JLabel("Fracci\u00F3n");
+		lblFraccion.setForeground(Color.WHITE);
+		lblFraccion.setBounds(10, 300, 72, 14);
+		add(lblFraccion);
 		
-		fraccion = new JTextField();
-		fraccion.setBounds(92, 297, 86, 20);
-		add(fraccion);
-		fraccion.setColumns(10);
+		final JLabel lblNumFraccion = new JLabel("");
+		lblNumFraccion.setForeground(Color.WHITE);
+		lblNumFraccion.setBounds(92, 300, 46, 14);
+		add(lblNumFraccion);
 		
 		JLabel lblCombinacinGanadora = new JLabel("Combinaci\u00F3n ganadora");
-		lblCombinacinGanadora.setForeground(Color.RED);
-		lblCombinacinGanadora.setBounds(10, 195, 124, 14);
+		lblCombinacinGanadora.setForeground(Color.WHITE);
+		lblCombinacinGanadora.setBounds(10, 195, 143, 14);
 		add(lblCombinacinGanadora);
 		
-		cmbGanadora = new JTextField();
-		cmbGanadora.setBounds(158, 192, 86, 20);
-		add(cmbGanadora);
-		cmbGanadora.setColumns(10);
+		final JLabel lblCmbGanadora = new JLabel("");
+		lblCmbGanadora.setForeground(Color.WHITE);
+		lblCmbGanadora.setBounds(163, 195, 94, 14);
+		add(lblCmbGanadora);
 		
 		final JLabel lblResultado = new JLabel("");
-		lblResultado.setForeground(Color.RED);
+		lblResultado.setForeground(Color.WHITE);
 		lblResultado.setBounds(10, 366, 430, 43);
 		add(lblResultado);
 		
@@ -95,11 +92,11 @@ public class Loteria extends JPanel{
 				for(int i = 0; i<numeroGanador.length; i++) {
 					numeroGanador[i] = (int) (Math.random()*10);
 				}
-				cmbGanadora.setText(Arrays.toString(numeroGanador));
+				lblCmbGanadora.setText(Arrays.toString(numeroGanador));
 				int numSerie = (int) (Math.random()*99);
 				int numFraccion = (int) (Math.random()*10);
-				serie.setText(Integer.toString(numSerie));
-				fraccion.setText(Integer.toString(numFraccion));
+				lblNumSerie.setText(Integer.toString(numSerie));
+				lblNumFraccion.setText(Integer.toString(numFraccion));
 				String combinacionUsuario = Integer.toString(tuCombinacion);
 				StringBuffer numeroPremiado = new StringBuffer();
 				for (int i = 0;i < numeroGanador.length; i++){

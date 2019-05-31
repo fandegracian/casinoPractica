@@ -49,9 +49,9 @@ public class EligeLoginRegistro extends JPanel {
 		
 		JLabel lblBienvenido = new JLabel("Bienvenido");
 		lblBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBienvenido.setForeground(Color.RED);
+		lblBienvenido.setForeground(Color.BLACK);
 		lblBienvenido.setFont(new Font("Dialog", Font.BOLD, 40));
-		lblBienvenido.setBounds(10, 11, 280, 46);
+		lblBienvenido.setBounds(10, 11, 224, 46);
 		add(lblBienvenido);
 		
 		JLabel lblFoto = new JLabel("");

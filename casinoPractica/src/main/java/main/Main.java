@@ -20,8 +20,8 @@ public class Main {
 		JfdataManager jfdataManager= new JfdataManager("a24dd750af544df998c6eecad017c05f");
 		MatchList actual = jfdataManager.getMatchesByCompetition(2021);
 		List<Match> partidos=actual.getMatches();
-		for(int i=0;i<partidos.size();i++) {
-			System.out.println(partidos.get(i).getHomeTeam().getName()+" vs "+partidos.get(i).getAwayTeam().getName()+" : "+partidos.get(i).getScore().getFullTime().getHomeTeam()+" - "+partidos.get(i).getScore().getFullTime().getAwayTeam());
-		}
+		//for(int i=0;i<partidos.size();i++) {
+			//System.out.println(partidos.get(i).getHomeTeam().getName()+" vs "+partidos.get(i).getAwayTeam().getName()+" : "+partidos.get(i).getScore().getFullTime().getHomeTeam()+" - "+partidos.get(i).getScore().getFullTime().getAwayTeam());
+		//}
 	}
 }

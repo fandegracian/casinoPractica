@@ -14,8 +14,6 @@ import java.awt.event.MouseEvent;
 public class Veintiuno extends JPanel{
 	
 	private Ventana ventana;
-	private JTextField numeroJugador;
-	private JTextField numeroBanca;
 	int tuNumero = 0;
 	
 	public Veintiuno(Ventana v) {
@@ -28,44 +26,44 @@ public class Veintiuno extends JPanel{
 		
 		
 		JLabel lblBienvenidoAlVeintiuno = new JLabel("Bienvenido al veintiuno");
-		lblBienvenidoAlVeintiuno.setForeground(Color.RED);
+		lblBienvenidoAlVeintiuno.setForeground(Color.WHITE);
 		lblBienvenidoAlVeintiuno.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		lblBienvenidoAlVeintiuno.setBounds(10, 26, 223, 42);
 		add(lblBienvenidoAlVeintiuno);
 		
 		JLabel lblElObjetivoEs = new JLabel("El objetivo es acercarte lo m\u00E1ximo posible al n\u00FAmero 21 pero sin pasarte");
-		lblElObjetivoEs.setForeground(Color.RED);
+		lblElObjetivoEs.setForeground(Color.WHITE);
 		lblElObjetivoEs.setBounds(10, 79, 351, 14);
 		add(lblElObjetivoEs);
 		
 		JLabel lblSiLaBanca = new JLabel("Si la banca obtiene un n\u00FAmero superior al tuyo perder\u00E1s la partida");
-		lblSiLaBanca.setForeground(Color.RED);
+		lblSiLaBanca.setForeground(Color.WHITE);
 		lblSiLaBanca.setBounds(10, 104, 331, 14);
 		add(lblSiLaBanca);
 		
-		numeroJugador = new JTextField();
-		numeroJugador.setBounds(96, 192, 86, 20);
-		add(numeroJugador);
-		numeroJugador.setColumns(10);
-		
 		JLabel lblTuNmero = new JLabel("Tu numero");
-		lblTuNmero.setForeground(Color.RED);
+		lblTuNmero.setForeground(Color.WHITE);
 		lblTuNmero.setBounds(10, 195, 76, 14);
 		add(lblTuNmero);
 		
-		numeroBanca = new JTextField();
-		numeroBanca.setBounds(334, 192, 86, 20);
-		add(numeroBanca);
-		numeroBanca.setColumns(10);
+		final JLabel lblNumeroJugador = new JLabel("");
+		lblNumeroJugador.setForeground(Color.WHITE);
+		lblNumeroJugador.setBounds(96, 195, 46, 14);
+		add(lblNumeroJugador);
 		
 		JLabel lblNmeroDeLa = new JLabel("Numero de la banca");
-		lblNmeroDeLa.setForeground(Color.RED);
+		lblNmeroDeLa.setForeground(Color.WHITE);
 		lblNmeroDeLa.setBounds(209, 195, 132, 14);
 		add(lblNmeroDeLa);
 		
+		final JLabel lblNumeroBanca = new JLabel("");
+		lblNumeroBanca.setForeground(Color.WHITE);
+		lblNumeroBanca.setBounds(331, 195, 46, 14);
+		add(lblNumeroBanca);
+		
 		final JLabel lblPerder = new JLabel("");
 		lblPerder.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblPerder.setForeground(Color.RED);
+		lblPerder.setForeground(Color.WHITE);
 		lblPerder.setBounds(10, 343, 193, 19);
 		add(lblPerder);
 		
@@ -76,10 +74,10 @@ public class Veintiuno extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				int carta = (int) (Math.random() * 11) + 1;
 				tuNumero = tuNumero + carta;
-				numeroJugador.setText(Integer.toString(tuNumero));
+				lblNumeroJugador.setText(Integer.toString(tuNumero));
 				if(tuNumero>21) {
 					lblPerder.setText("Has perdido");
-					numeroJugador.setText("Reinicia");
+					lblNumeroJugador.setText("Reinicia");
 				}
 			}
 		});
@@ -94,7 +92,7 @@ public class Veintiuno extends JPanel{
 				while(numeroBancaa<tuNumero) {
 					int carta = (int) (Math.random() * 11) + 1;
 					numeroBancaa = numeroBancaa + carta;
-					numeroBanca.setText(Integer.toString(numeroBancaa));
+					lblNumeroBanca.setText(Integer.toString(numeroBancaa));
 				}
 				if(numeroBancaa>=21) {
 					lblPerder.setText("HAS GANADO!");
