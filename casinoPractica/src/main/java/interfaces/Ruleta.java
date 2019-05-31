@@ -80,7 +80,7 @@ public class Ruleta extends JPanel{
 		add(lblColGanador);
 		
 		final JLabel Resultado = new JLabel("");
-		Resultado.setForeground(Color.RED);
+		Resultado.setForeground(Color.WHITE);
 		Resultado.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Resultado.setBounds(10, 378, 257, 30);
 		add(Resultado);

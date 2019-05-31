@@ -78,6 +78,7 @@ public class Veintiuno extends JPanel{
 				if(tuNumero>21) {
 					lblPerder.setText("Has perdido");
 					lblNumeroJugador.setText("Reinicia");
+					setEnabled(false);
 				}
 			}
 		});
@@ -88,16 +89,19 @@ public class Veintiuno extends JPanel{
 		btnPlantarse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				if(isEnabled() == true) {
 				int numeroBancaa = 0;
 				while(numeroBancaa<tuNumero) {
 					int carta = (int) (Math.random() * 11) + 1;
 					numeroBancaa = numeroBancaa + carta;
 					lblNumeroBanca.setText(Integer.toString(numeroBancaa));
 				}
-				if(numeroBancaa>=21) {
+				if(numeroBancaa>21) {
 					lblPerder.setText("HAS GANADO!");
 				}else {
 					lblPerder.setText("Has perdido");
+					setEnabled(false); 
+				}
 				}
 			}
 		});
